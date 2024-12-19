@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Site</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      fieldset {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="text"], input[type="email"], input[type="phone"] {
+        width: 100%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="radio"], input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      .terms {
+        font-size: 0.9em;
+        color: #666;
+      }
+
+      input[type="button"], input[type="reset"] {
+        width: 48%;
+        padding: 10px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+
+      input[type="button"]:hover, input[type="reset"]:hover {
+        background-color: #45a049;
+      }
+
+      .reset-btn {
+        background-color: #f44336;
+      }
+
+      .reset-btn:hover {
+        background-color: #e53935;
+      }
+    </style>
+    <script>
+      function check() {
+        // Get the values of the inputs
+        var fullName = document.getElementById('ch').value;
+        var genderM = document.getElementById('M').checked;
+        var genderF = document.getElementById('F').checked;
+        var email = document.getElementById('em').value;
+        var phone = document.getElementById('pn').value;
+        var termsAccepted = document.querySelector('input[type="checkbox"]').checked;
+
+        // Simple validation
+        if (!fullName) {
+          alert("Full Name is required!");
+        } else if (!genderM && !genderF) {
+          alert("Please select a gender!");
+        } else if (!email) {
+          alert("Email is required!");
+        } else if (!phone) {
+          alert("Phone number is required!");
+        } else if (!termsAccepted) {
+          alert("You must accept the terms and policy!");
+        } else {
+          alert("Form Submitted Successfully!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <h1>Order Site</h1>
+        Full Name: <input type="text" id="ch"><br><br>
+        
+        Gender: 
+        <label><input type="radio" id="M" name="gender"> Male</label>
+        <label><input type="radio" id="F" name="gender"> Female</label><br><br>
+        
+        Email: <input type="email" id="em"><br><br>
+        
+        Phone number: <input type="text" id="pn"><br><br>
+        
+        Terms and policy: 
+        <input type="checkbox" id="terms"> 
+        <span class="terms">You must accept our terms and policy to continue</span><br><br>
+
+        <input type="button" value="Submit" onclick="check()"> 
+        <input type="reset" class="reset-btn" value="Reset">
+      </fieldset>
+    </form>
+  </body>
+</html>
